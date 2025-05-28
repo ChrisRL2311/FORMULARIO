@@ -1,12 +1,19 @@
+// src/app/app.component.ts
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { ProductCreateComponent } from './product-create/product-create.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  standalone: true,
+  imports: [CommonModule, ProductCreateComponent], // <-- Componente standalone
+  template: `
+    <div class="container">
+      <app-product-create></app-product-create>
+    </div>
+  `,
+  styles: [`
+    .container { padding: 20px; }
+  `]
 })
-export class AppComponent {
-  title = 'producto-app';
-}
+export class AppComponent {}
